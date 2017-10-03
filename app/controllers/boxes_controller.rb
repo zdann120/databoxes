@@ -1,6 +1,6 @@
 class BoxesController < ApplicationController
   before_action :set_box, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: [:show, :payload]
 
   # GET /boxes
   # GET /boxes.json
