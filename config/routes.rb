@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :boxes, only: [:show] do
         resources :data, on: :member, only: [:create, :show, :update, :destroy]
+        get 'keys', on: :member, to: 'boxes#keys'
       end
     end
   end
