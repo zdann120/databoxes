@@ -125,6 +125,7 @@ GEM
     json (2.1.0)
     jsoneditor-rails (1.0.1)
       sass-rails
+    jwt (2.0.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     listen (3.1.5)
@@ -314,6 +315,7 @@ DEPENDENCIES
   formulaic
   jbuilder (~> 2.5)
   jsoneditor-rails
+  jwt
   launchy
   listen (>= 3.0.5, < 3.2)
   money-rails

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171003041846) do
+ActiveRecord::Schema.define(version: 20171003134448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20171003041846) do
     t.boolean "public"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "jwt_key"
+    t.index ["jwt_key"], name: "index_boxes_on_jwt_key", unique: true
     t.index ["token"], name: "index_boxes_on_token", unique: true
     t.index ["user_id"], name: "index_boxes_on_user_id"
   end

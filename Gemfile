@@ -61,6 +61,7 @@ gem 'pry-rails'
 gem 'pundit'
 gem 'flutie'
 gem 'jsoneditor-rails'
+gem 'jwt'
 group :development, :test do
   gem 'rspec-rails'
   gem 'timecop'

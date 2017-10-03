@@ -6,6 +6,8 @@ br
 pre = api_v1_box_data_url(@box)
 em JSON data should be in the format: <pre>{"identifier":"...", payload: ...}</pre>
 hr
+<strong>YOUR JWT KEY:</strong> <pre>#{@box.jwt_key}</pre>
+hr
 h2 Stored Data
 table.table
   thead
