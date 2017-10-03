@@ -62,6 +62,7 @@ gem 'pundit'
 gem 'flutie'
 gem 'jsoneditor-rails'
 gem 'jwt'
+gem 'can_has_validations'
 group :development, :test do
   gem 'rspec-rails'
   gem 'timecop'

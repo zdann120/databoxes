@@ -5,6 +5,9 @@ class Box < ApplicationRecord
   attribute :public, :boolean, default: false
   has_many :data
 
+  validates :jwt_key, write_once: true
+  validates :title, presence: true
+
   def to_param
     token
   end
