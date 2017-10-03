@@ -1,0 +1,15 @@
+h1 Payload
+#payloadeditor
+
+- content_for(:javascript) do
+  javascript:
+    var container = document.getElementById('payloadeditor');
+    var options = {};
+    var editor = new JSONEditor(container, options);
+
+    var json = #{raw(@datum.payload.to_json)};
+
+    editor.set(json);
+
+    var json = editor.get();
+    editor.setMode('view');

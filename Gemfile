@@ -60,6 +60,8 @@ gem 'money-rails'
 gem 'pry-rails'
 gem 'pundit'
 gem 'flutie'
+gem 'jsoneditor-rails'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'timecop'

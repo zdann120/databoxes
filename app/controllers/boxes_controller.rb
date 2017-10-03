@@ -69,7 +69,7 @@ class BoxesController < ApplicationController
     @box = Box.find(params[:box_id])
     @datum = Datum.find_by_identifier(params[:id])
     authorize @datum
-    render json: @datum.payload
+    #render json: @datum.payload
   end
 
   private
