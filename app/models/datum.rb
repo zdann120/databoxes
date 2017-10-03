@@ -2,6 +2,8 @@ class Datum < ApplicationRecord
   belongs_to :box
 
   validates :identifier, uniqueness: {scope: :box_id}
+  validates :identifier, presence: true
+  validates :payload, presence: true
   #after_create :set_identifier
 
   private
