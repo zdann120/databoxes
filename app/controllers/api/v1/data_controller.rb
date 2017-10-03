@@ -20,7 +20,10 @@ class Api::V1::DataController < Api::ApiController # ~> NameError: uninitialized
     set_box
     data = JSON.parse(request.body.read)
     new_data = @box.data.new(identifier: data['identifier'],
-                    payload: data['payload'])
+                    payload: data['payload'],
+                    host: request.host,
+                    ip_address: request.remote_ip
+                            )
     if @box.save
       render json: {msg: 'saved'}, status: 200
     else

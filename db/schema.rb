@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171003000606) do
+ActiveRecord::Schema.define(version: 20171003041846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 20171003000606) do
     t.jsonb "payload"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "host"
+    t.inet "ip_address"
     t.index ["box_id"], name: "index_data_on_box_id"
     t.index ["identifier"], name: "index_data_on_identifier", unique: true
   end
