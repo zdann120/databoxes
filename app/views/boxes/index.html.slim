@@ -1,0 +1,21 @@
+h1 Your DataBoxes
+
+table.table.table-bordered.table-hover
+  thead
+    tr
+      th Title
+      th Description
+      th Public
+      th
+
+  tbody
+    - @boxes.each do |box|
+      tr
+        td = box.title
+        td = box.description
+        td = box.public
+        td = link_to 'Show', box
+
+br
+
+= link_to 'New Box', new_box_path

@@ -1,0 +1,23 @@
+h1 = @box.title
+p.lead = @box.description
+hr
+strong POST your JSON data to the following URL:
+br
+pre = api_v1_box_data_url(@box)
+em JSON data should be in the format: <pre>{"identifier":"...", payload: ...}</pre>
+hr
+h2 Stored Data
+table.table
+  thead
+    tr
+      th Identifier
+      th Payload
+  tbody
+    - @box.data.each do |datum|
+      tr
+        td = datum.identifier
+        td = link_to "View Payload", '#'
+
+= link_to 'Edit', edit_box_path(@box)
+'  |
+= link_to 'Back', boxes_path

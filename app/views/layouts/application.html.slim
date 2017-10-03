@@ -1,0 +1,11 @@
+doctype html
+html
+  head
+    title
+      | DataBox
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+  body[class="#{body_class}"]
+    .container
+      = yield
+    = render 'javascript'

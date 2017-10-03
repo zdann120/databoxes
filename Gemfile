@@ -59,6 +59,7 @@ gem 'rails-footnotes'
 gem 'money-rails'
 gem 'pry-rails'
 gem 'pundit'
+gem 'flutie'
 group :development, :test do
   gem 'rspec-rails'
   gem 'timecop'

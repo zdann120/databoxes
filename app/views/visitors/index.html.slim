@@ -1,2 +1,13 @@
-h1 Visitors#index
-p Find me in app/views/visitors/index.html.slim
+h1 DataBoxes
+p.lead This is a tiny web service that allows you to create api endpoints which
+  accept json objects. You can then view the data online, or retrieve it through
+  our API.
+- if current_user
+  .btn-group
+    = link_to 'My Databoxes', boxes_path, class: 'btn btn-primary'
+    = link_to 'Logout', destroy_user_session_path, method: :delete,
+      class: 'btn btn-danger'
+- else
+  .btn-group
+    = link_to "Register", new_user_registration_path, class: 'btn btn-success'
+    = link_to "Login", new_user_session_path, class: 'btn btn-primary'
