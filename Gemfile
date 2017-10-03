@@ -61,7 +61,6 @@ gem 'pry-rails'
 gem 'pundit'
 gem 'flutie'
 gem 'jsoneditor-rails'
-gem "zdne_databoxes", github: "zdann120/zdne-databoxes"
 group :development, :test do
   gem 'rspec-rails'
   gem 'timecop'
