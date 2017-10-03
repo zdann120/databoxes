@@ -3,6 +3,10 @@ class BoxPolicy < ApplicationPolicy
     true
   end
 
+  def decode?
+    true
+  end
+
   def show?
     record.public? || (record.user == user) || user.admin?
   end

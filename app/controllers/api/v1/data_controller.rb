@@ -41,11 +41,11 @@ class Api::V1::DataController < Api::ApiController # ~> NameError: uninitialized
     end
   end
 
-  def payload
+  def decode
     set_box
-    set_datum
-    render json: @datum.payload
-    authorize @datum
+    authorize @box
+    @data = @box.decode_jwt(params[:jwt])
+    render json: @data
   end
 
   private
