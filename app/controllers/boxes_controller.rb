@@ -1,11 +1,12 @@
 class BoxesController < ApplicationController
   before_action :set_box, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:show]
 
   # GET /boxes
   # GET /boxes.json
   def index
     @boxes = current_user.boxes.all
+    authorize @boxes
   end
 
   # GET /boxes/1
@@ -16,6 +17,7 @@ class BoxesController < ApplicationController
   # GET /boxes/new
   def new
     @box = current_user.boxes.new
+    authorize @box
   end
 
   # GET /boxes/1/edit
@@ -26,6 +28,7 @@ class BoxesController < ApplicationController
   # POST /boxes.json
   def create
     @box = current_user.boxes.new(box_params)
+    authorize @box
 
     respond_to do |format|
       if @box.save
@@ -62,10 +65,18 @@ class BoxesController < ApplicationController
     end
   end
 
+  def payload
+    @box = Box.find(params[:box_id])
+    @datum = Datum.find_by_identifier(params[:id])
+    authorize @datum
+    render json: @datum.payload
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_box
       @box = Box.find(params[:id])
+      authorize @box
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

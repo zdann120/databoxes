@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :boxes
+  resources :boxes do
+    resources :data, only: [] do
+      get 'payload', on: :member, to: 'boxes#payload'
+    end
+  end
   root to: 'visitors#index'
   get 'visitors/index'
 
@@ -7,9 +11,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :boxes, only: [:show] do
-        resources :data, on: :member, only: [:create, :show, :update, :destroy] do
-          get 'payload', on: :member
-        end
+        resources :data, on: :member, only: [:create, :show, :update, :destroy]
       end
     end
   end

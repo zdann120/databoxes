@@ -1,4 +1,5 @@
 class Api::V1::DataController < Api::ApiController # ~> NameError: uninitialized constant Api
+  before_action :authenticate_user!, only: [:payload]
   def show
     set_box
     set_datum
@@ -36,6 +37,7 @@ class Api::V1::DataController < Api::ApiController # ~> NameError: uninitialized
     set_box
     set_datum
     render json: @datum.payload
+    authorize @datum
   end
 
   private
