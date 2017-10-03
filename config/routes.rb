@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :boxes, only: [:show] do
-        resources :data, on: :member, only: [:create, :show, :update, :destroy]
+        resources :data, on: :member, only: [:create, :show, :update, :destroy] do
+          get 'payload', on: :member
+        end
       end
     end
   end

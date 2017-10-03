@@ -32,6 +32,12 @@ class Api::V1::DataController < Api::ApiController # ~> NameError: uninitialized
     end
   end
 
+  def payload
+    set_box
+    set_datum
+    render json: @datum.payload
+  end
+
   private
 
   def set_datum

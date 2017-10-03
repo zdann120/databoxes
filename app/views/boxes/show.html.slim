@@ -16,7 +16,7 @@ table.table
     - @box.data.each do |datum|
       tr
         td = datum.identifier
-        td = link_to "View Payload", '#'
+        td = link_to "View Payload", payload_api_v1_box_datum_path(@box, datum.identifier)
 
 = link_to 'Edit', edit_box_path(@box)
 '  |
