@@ -1,5 +1,10 @@
 class Api::V1::DataController < Api::ApiController # ~> NameError: uninitialized constant Api
   before_action :authenticate_user!, only: [:payload]
+  def index
+    set_box
+    @data = @box.data.map{|d| [d.identifier, d.payload]}
+    render json: { payload: @data }
+  end
   def show
     set_box
     set_datum
