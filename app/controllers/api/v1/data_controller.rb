@@ -41,6 +41,17 @@ class Api::V1::DataController < Api::ApiController # ~> NameError: uninitialized
     end
   end
 
+  def update
+    set_box
+    set_datum
+    @datum.payload = JSON.parse(request.body.read)['payload']
+    if @datum.save
+      render json: {msg: 'updated'}, status: 200
+    else
+      render json: {msg: 'oops'}
+    end
+  end
+
   def decode
     set_box
     authorize @box

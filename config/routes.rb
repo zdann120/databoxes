@@ -14,7 +14,7 @@ Rails.application.routes.draw do
         get 'datum/:box_id', to: 'data#decode'
       end
       resources :boxes, only: [:show] do
-        resources :data, on: :member, only: [:create, :show, :update, :destroy]
+        resources :data, on: :member, only: [:create, :show, :update, :destroy, :update]
         get 'keys', on: :member, to: 'boxes#keys'
       end
     end
